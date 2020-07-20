@@ -1,0 +1,63 @@
+//main project
+//Created by Maria-Lavinia Buleac on 20/07/2020
+//Copyright 2020 Maria-Lavinia Buleac. All rights reserved 
+
+int GREEN = 2;
+int YELLOW = 3;
+int RED = 4;
+int DELAY_GREEN = 10000;
+int DELAY_YELLOW = 3500;
+int DELAY_RED = 10000;
+
+void setup()
+{
+  pinMode(GREEN, OUTPUT);
+  pinMode(YELLOW, OUTPUT);
+  pinMode(RED, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
+}
+
+void loop()
+{
+  green_light();
+  delay(DELAY_GREEN);
+  for(int i=0; i<5; i++){
+    digitalWrite(GREEN, HIGH);
+    delay(100);
+    digitalWrite(GREEN, LOW);
+    delay(100);
+  }
+  
+  yellow_light();
+  delay(DELAY_YELLOW);
+  
+  red_light();
+  delay(DELAY_RED);
+  for(int i=0; i<5; i++){
+    digitalWrite(RED, HIGH);
+    delay(100);
+    digitalWrite(RED, LOW);
+    delay(100);
+  }
+}
+
+void green_light()
+{
+  digitalWrite(GREEN, HIGH);
+  digitalWrite(YELLOW, LOW);
+  digitalWrite(RED, LOW);
+}
+
+void yellow_light()
+{
+  digitalWrite(GREEN, LOW);
+  digitalWrite(YELLOW, HIGH);
+  digitalWrite(RED, LOW);
+}
+
+void red_light()
+{
+  digitalWrite(GREEN, LOW);
+  digitalWrite(YELLOW, LOW);
+  digitalWrite(RED, HIGH);
+}
